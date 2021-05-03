@@ -1,0 +1,62 @@
+.header {
+  position: fixed;
+  background: #f7f7f7;
+  height: 120px;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+}
+
+.headerText {
+  flex: 1;
+}
+
+.settings {
+  width: 200px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 120px 0 60px 0;
+}
+
+.messageContainer {
+  border: 1px solid #eee;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.messageContainer a {
+  text-decoration: underline;
+}
+
+.chat {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  background: #f7f7f7;
+  width: 100%;
+  padding: 5px;
+  height: 60px;
+}
+
+.messageInput {
+  flex: 1;
+  margin-right: 10px;
+  border: 1px solid #eee;
+  border-radius: 2px;
+}
+
+.submit {
+  background: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.user {
+  font-style: italic;
+}
