@@ -134,6 +134,11 @@ const Chat = ({ currentUser, session, supabase }) => {
     }
   }
 
+  const signout = () => {
+    supabase.auth.signOut()
+    window.location.reload()
+  }
+
   if (process.env.NEXT_PUBLIC_ENV == "development") {
     console.log({
       currentUser,
@@ -165,7 +170,7 @@ const Chat = ({ currentUser, session, supabase }) => {
                   <button onClick={() => setEditingUsername(true)}>Update username</button>
                 </div>
                 <div>
-                  <button onClick={() => supabase.logout()}>Log out</button>
+                  <button onClick={() => supabase.signout()}>Log out</button>
                 </div>
               </>
             )}

@@ -16,7 +16,7 @@ const useSupabase = () => {
 
   useEffect(async () => {
     const getCurrentUser = async () => {
-      if (session.user.id) {
+      if (session?.user.id) {
         const { data: currentUser } = await supabase.from('user').select('*').eq('id', session.user.id)
 
         if (currentUser.length) {
