@@ -132,8 +132,8 @@ const Chat = ({ currentUser, session, supabase }) => {
     }
   }
 
-  const signout = () => {
-    supabase.auth.signOut()
+  const signout = async () => {
+    window.localStorage.clear()
     window.location.reload()
   }
 
