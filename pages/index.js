@@ -10,7 +10,7 @@ export default function Home({ currentUser, session, supabase }) {
 
   useEffect(() => {
     setLoggedIn(!!session)
-  }, session)
+  }, [session])
 
   return (
     <div className={styles.container}>

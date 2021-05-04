@@ -61,15 +61,13 @@ const Chat = ({ currentUser, session, supabase }) => {
     await setupUsersSubscription()
   }, [])
 
-  const user = session.user
-
   const getUsersFromSupabase = async (users, userIds) => {
     const usersToGet = Array.from(userIds).filter(userId => !users[userId])
     if (Object.keys(users).length && !usersToGet.length) return users
     try {
       const { data } = await supabase
         .from('user')
-        .select('id, email, username')
+        .select('id, username')
         .in('id', usersToGet)
       const newUsers = {}
       data.forEach(user => (newUsers[user.id] = user))
@@ -101,18 +99,18 @@ const Chat = ({ currentUser, session, supabase }) => {
       await supabase
         .from("message")
         .insert([
-          { content, user_id: user.id }
+          { content, user_id: session.user.id }
         ])
 
       message.current.value = ""
     } catch (err) {
-      console.log("Something went wrong")
+      console.log(err)
     }
   }
 
   const username = user_id => {
     const user = users[user_id]
-    return user ? user.username ? user.username : user.email.split("@")[0] : ""
+    return user ? user.username : session.user.email.split("@")[0]
   }
 
   const setUsername = async evt => {
@@ -155,7 +153,7 @@ const Chat = ({ currentUser, session, supabase }) => {
         <div className={styles.headerText}>
           <h1>Supabase Chat</h1>
           <p>
-            Welcome, {currentUser.username ? currentUser.username : currentUser.email}
+            Welcome, {currentUser.username ? currentUser.username : session.user.email}
           </p>
         </div>
         <div className={styles.settings}>
