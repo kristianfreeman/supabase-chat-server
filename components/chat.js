@@ -170,7 +170,7 @@ const Chat = ({ currentUser, session, supabase }) => {
                   <button onClick={() => setEditingUsername(true)}>Update username</button>
                 </div>
                 <div>
-                  <button onClick={() => supabase.signout()}>Log out</button>
+                  <button onClick={() => supabase.auth.signOut()}>Log out</button>
                 </div>
               </>
             )}

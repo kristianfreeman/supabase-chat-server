@@ -15,8 +15,7 @@ export default function Home({ currentUser, session, supabase }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Supabase Chat</title>
       </Head>
 
       <main className={styles.main}>
