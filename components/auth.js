@@ -13,6 +13,11 @@ const Auth = ({ supabase }) => {
     error ? setError(error.message) : setSentEmail(true)
   }
 
+  const signInWithGitHub = evt => {
+    evt.preventDefault()
+    supabase.auth.signIn({ provider: 'github' })
+  }
+
   return <div className={styles.container}>
     <h1 className={styles.title}>Supabase Chat</h1>
 
@@ -22,13 +27,19 @@ const Auth = ({ supabase }) => {
       <p>We've sent you an email to login! Check your email to continue.</p>
     )
       : (
-        <form onSubmit={signIn}>
-          <input className={styles.input} placeholder="fmulder@xfiles.com" type="text" ref={emailRef} required />
+        <>
+          <form onSubmit={signIn}>
+            <input className={styles.input} placeholder="fmulder@xfiles.com" type="text" ref={emailRef} required />
 
-          <button className={styles.submit} type="submit">
-            Login
-          </button>
-        </form>
+            <button className={styles.submit} type="submit">
+              Login
+            </button>
+          </form>
+
+          <p>
+            <button className={styles.github} onClick={signInWithGitHub}>Sign in with GitHub</button>
+          </p>
+        </>
       )
     }
   </div>

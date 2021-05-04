@@ -37,3 +37,17 @@ p.error {
 .submit:hover {
   background: #eee;
 }
+
+.github {
+  background: #000;
+  color: white;
+  padding: 10px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.github:hover {
+  background: #333;
+}
