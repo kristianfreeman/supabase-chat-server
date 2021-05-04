@@ -29,7 +29,7 @@ const Auth = ({ supabase }) => {
       : (
         <>
           <form onSubmit={signIn}>
-            <input className={styles.input} placeholder="fmulder@xfiles.com" type="text" ref={emailRef} required />
+            <input className={styles.input} placeholder="your@email.com" type="text" ref={emailRef} required />
 
             <button className={styles.submit} type="submit">
               Login
